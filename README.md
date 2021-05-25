@@ -53,3 +53,9 @@ My initial understanding was that I need to loop through all possible p, q, and 
 
 ### UPDATE
 After talking with Dr. Clements, we were able to figure out how to use solve, assert, verify, etc to aid in our classify function/procedure. We created a helper function, `sol` that takes in an argument and solves to give us unsat or a model. Using this, we matched with the output of `sol` on the given formula. If we got unsat, then we knew it was a 'contradiction' so immediately returned that. Else, we got a model, so it could be a tautology or contingency. We then used cond and verify to see if we could find a violation of the assertion of F. Based on our understanding, if this was not possible (unsat) then we returned 'tautology'. Else, we returned 'contingency'.
+
+We also added two simple test cases:
+- a contradiction --> (r and !r)
+- a tautology --> (p or !p)
+
+Both of these, along with the provided test cases, returned the expected output.
