@@ -49,3 +49,7 @@ but they all resulted in 'unsat'. At this point, we felt quite stuck and had gon
 
 __Jiwon:__
 My initial understanding was that I need to loop through all possible p, q, and r boolean combinations for the functions to decide to return TAUTOLOGY, CONTRADICTION, or CONTINGENCY. So I tried to write a function where it has nested loops for list of True and False value and call functions. Then we realized that f0, f1, and f2 are not taking p, q, or r as arguments. What we discovered so far is that we probably have been approaching the probem in incorrect way. The work is in classifyWork.rkt file.
+
+
+### UPDATE
+After talking with Dr. Clements, we were able to figure out how to use solve, assert, verify, etc to aid in our classify function/procedure. We created a helper function, `sol` that takes in an argument and solves to give us unsat or a model. Using this, we matched with the output of `sol` on the given formula. If we got unsat, then we knew it was a 'contradiction' so immediately returned that. Else, we got a model, so it could be a tautology or contingency. We then used cond and verify to see if we could find a violation of the assertion of F. Based on our understanding, if this was not possible (unsat) then we returned 'tautology'. Else, we returned 'contingency'.
